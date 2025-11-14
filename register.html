@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה לאוסף | יצירת חשבון</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="login-container"> 
+        <div class="login-box"> 
+            <h2>📝 הרשמה לאוסף הירוק</h2>
+            
+            <form action="/register" method="POST">
+                
+                <div class="form-group">
+                    <label for="full_name">שם מלא:</label>
+                    <input type="text" id="full_name" name="full_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">אימייל:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">סיסמה:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm_password">אימות סיסמה:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-login-submit">הרשם</button>
+            </form>
+
+            <p class="links-footer">
+                <a href="login.html">כבר יש לך חשבון? התחבר</a>
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איפוס סיסמה</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="login-container"> 
+        <div class="login-box"> 
+            <h2>❓ שכחת סיסמה?</h2>
+            
+            <p>אנא הזן את כתובת האימייל שאיתה נרשמת, ואנו נשלח לך קישור לאיפוס סיסמה.</p>
+            
+            <form action="/forgot-password" method="POST">
+                
+                <div class="form-group">
+                    <label for="email">אימייל:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <button type="submit" class="btn btn-login-submit">שלח לי קישור לאיפוס</button>
+            </form>
+
+            <p class="links-footer">
+                <a href="login.html">חזור להתחברות</a>
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>

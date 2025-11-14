@@ -1,0 +1,184 @@
+/* איפוס בסיסי ועיצוב גופן */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333; 
+    background-color: #f4f4f4; 
+    direction: rtl; /* כיוון מימין לשמאל */
+    text-align: right;
+}
+
+/* --- כותרת עליונה (Header) --- */
+.main-header {
+    background-color: #007c3b; /* ירוק מכבי חיפה */
+    color: #fff;
+    padding: 15px 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex; /* שימוש ב-Flexbox */
+    justify-content: space-between; /* פיזור אלמנטים לצדדים */
+    align-items: center; /* יישור אנכי למרכז */
+}
+
+.logo-title h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+.logo-title p {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* כפתורי התחברות והרשמה */
+.auth-links {
+    display: flex;
+    gap: 10px; /* רווח בין הכפתורים */
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-login {
+    background-color: #fff;
+    color: #007c3b; /* טקסט ירוק על רקע לבן */
+    border: 1px solid #fff;
+}
+
+.btn-register {
+    background-color: transparent;
+    color: #fff; 
+    border: 1px solid #fff; /* גבול לבן */
+}
+
+.btn-login:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-register:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* תפריט ניווט ראשי (מתחת לכותרת הראשית) */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
+}
+
+.main-nav ul li {
+    margin: 0 15px;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* בתוך style.css: */
+.club-logo {
+    height: 80px; /* גודל רצוי */
+    width: auto;
+    background-color: #007c3b;
+    /* ניתן להוסיף כאן מיקום נוסף בהתאם לצורך */
+}
+
+/* --- עיצוב עמוד התחברות (Login) --- */
+
+.login-container {
+    display: flex;
+    justify-content: center; /* מרכוז אופקי */
+    align-items: center; /* מרכוז אנכי */
+    height: 100vh; /* מותח את הגובה לגובה המסך המלא */
+    background-color: #f4f4f4; /* רקע בהיר (כמו שאר האתר) */
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* רוחב מוגבל לקופסת הטופס */
+    text-align: right;
+}
+
+.login-box h2 {
+    color: #007c3b; /* ירוק מכבי */
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.btn-login-submit {
+    width: 100%;
+    background-color: #007c3b;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-login-submit:hover {
+    background-color: #005f2f;
+}
+
+.links-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.links-footer a {
+    color: #007c3b;
+    text-decoration: none;
+}
+
+.links-footer a:hover {
+    text-decoration: underline;
+}
+/* --- גלריית הפריטים והפוטר (כמו בקוד הקודם) --- */
+/* (ניתן להעתיק את שאר הקוד מ-style.css הקודם, כמו: .content-container, .scarf-gallery, .scarf-item, .main-footer) */
