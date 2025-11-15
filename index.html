@@ -3,55 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚽ The Greens </title>
+    <title>⚽ האוסף הירוק | Maccabi Haifa Collection</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="main-header">
+        <div class="header-glow"></div>
+
         <div class="header-content">
-            
-            <img src="Images/Maccabi_logo.png" alt="סמל מכבי חיפה" class="club-logo"> 
-            
-            <div class="logo-title">
-                <h1>🏆 </h1>
-                <p>אתר אוהדים וגלריית פריטים</p>
+            <div class="logo-side">
+                <img src="Images/Maccabi_logo.png" alt="סמל מכבי חיפה" class="club-logo">
+                <div class="logo-title">
+                    <h1>האוסף הירוק</h1>
+                    <p>גלריית פריטי אספנות של אוהד מכבי חיפה</p>
+                </div>
             </div>
-            
+
             <div class="auth-links">
-                <a href="login.html" class="btn btn-login">Login</a>
-                <a href="register.html" class="btn btn-register">Register</a>
+                <a href="login.html" class="btn btn-login">התחברות</a>
+                <a href="register.html" class="btn btn-register">הרשמה</a>
             </div>
         </div>
 
         <nav class="main-nav">
             <ul>
                 <li><a href="#home">ראשי</a></li>
-                <li><a href="#scarves">גלריה</a></li>
+                <li><a href="scarves.html">צעיפים</a></li>
                 <li><a href="#about">אודות</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="content-container">
+    <main class="content-container" id="home">
 
-        <section id="scarves" class="scarf-gallery">
-            <h2>🧣 גלריית הצעיפים</h2>
-            
-            <div class="scarf-item">
-                <img src="placeholder.jpg" alt="שם הצעיף">
-                <h3>שם הצעיף לדוגמה</h3>
-                <p><strong>קטגוריה:</strong> קטגוריה לדוגמה</p>
-            </div>
-            
+        <!-- תפריט צד מימין -->
+        <aside class="side-menu">
+            <h2>תפריט</h2>
+            <ul>
+                <li><a href="scarves.html">🧣 כל הצעיפים</a></li>
+                <li><a href="#">👕 חולצות (בקרוב)</a></li>
+                <li><a href="#">🚩 דגלים (בקרוב)</a></li>
+                <li><a href="#">🎟️ כרטיסי משחק (בקרוב)</a></li>
+                <li><a href="#about">ℹ️ אודות האתר</a></li>
+            </ul>
+        </aside>
+
+        <!-- תוכן מרכזי -->
+        <section class="main-content">
+
+            <!-- Hero: טקסט + סליידר -->
+            <section class="hero">
+                <div class="hero-text">
+                    <span class="hero-tag">פרויקט אישי • אוהד ירוק</span>
+                    <h2>ברוך הבא לאוסף הירוק</h2>
+                    <p>
+                        כאן תמצא צעיפים, חולצות ופריטים מיוחדים של מכבי חיפה, מכל השנים
+                        והרגעים הגדולים. חלק קטן מהאוסף מופיע כאן בעמוד הראשי, והשאר מחכה
+                        לך בגלריית הצעיפים.
+                    </p>
+                    <p class="hero-sub">
+                        זה לא אתר רשמי, אלא אוסף פרטי של אוהד מהיציע – עם הרבה אהבה
+                        למועדון ולצבע הירוק.
+                    </p>
+                    <a href="scarves.html" class="btn btn-hero">לצפייה בכל הצעיפים</a>
+                </div>
+
+                <div class="hero-slider">
+                    <div class="hero-frame">
+                        <img id="hero-image" src="Images/scarves/manchester_1.jpg" alt="צעיף משחק נגד מנצ'סטר יונייטד">
+
+                        <div class="hero-overlay"></div>
+                    </div>
+                    <div id="hero-caption" class="hero-caption">צעיף משחק נגד מנצ'סטר יונייטד</div>
+
+                    <div class="hero-dots" id="hero-dots"></div>
+                </div>
+            </section>
+
+            <!-- אודות -->
+            <section id="about" class="about-section">
+                <h2>ℹ️ אודות האתר</h2>
+                <p>
+                    האוסף הירוק הוא פרויקט אישי של אוהד מכבי חיפה, שמרכז במקום אחד פריטי אספנות:
+                    צעיפים היסטוריים, חולצות משחק, דגלים מיוחדים, כרטיסי משחק ועוד. כל פריט מספר
+                    סיפור קטן – משחק גדול, נסיעה לחו"ל, מפגש אוהדים, או רגע מהיציע שקשה לשכוח.
+                </p>
+                <p>
+                    המטרה של האתר היא לשתף את האהבה למועדון ואת הכיף שבלהיות אספן – ואולי בעתיד
+                    גם לאפשר לאוהדים נוספים להוסיף את האוסף שלהם, לדרג פריטים ולספר סיפורים.
+                </p>
+                <p>
+                    זה עדיין בתחילת הדרך, אבל כמו קבוצה טובה – מתקדמים צעד צעד, ומשדרגים כל עונה. 💚
+                </p>
+            </section>
+
         </section>
 
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2025 האוסף הירוק</p>
+        <p>&copy; 2025 האוסף הירוק · פרויקט אישי של אוהד מכבי חיפה</p>
     </footer>
+
+    <!-- סקריפט פשוט לתמונות מתחלפות -->
+   <script>
+    // --- סליידר עם 3 הצעיפים שלך ---
+    const slides = [
+        {
+            src: "Images/scarves/manchester_1.jpg",
+            alt: "צעיף משחק נגד מנצ'סטר יונייטד",
+            caption: "צעיף משחק נגד מנצ'סטר יונייטד"
+        },
+        {
+            src: "Images/scarves/vitesa.jpg",
+            alt: "צעיף חוץ נגד ויטסה",
+            caption: "צעיף חוץ נגד ויטסה"
+        },
+        {
+            src: "Images/scarves/kirayt_eliezer.jpg",
+            alt: "צעיף פרידה מקריית אליעזר",
+            caption: "צעיף פרידה מקריית אליעזר"
+        }
+    ];
+
+    let currentSlide = 0;
+    const heroImg = document.getElementById('hero-image');
+    const heroCaption = document.getElementById('hero-caption');
+    const heroDotsContainer = document.getElementById('hero-dots');
+
+    // יצירת הנקודות
+    slides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.type = "button";
+        dot.className = 'hero-dot' + (index === 0 ? ' active' : '');
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
+        heroDotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.hero-dot');
+
+    function showSlide(index) {
+        const slide = slides[index];
+
+        heroImg.classList.add('fade-out');
+        setTimeout(() => {
+            heroImg.src = slide.src;
+            heroImg.alt = slide.alt;
+            heroCaption.textContent = slide.caption;
+
+            heroImg.classList.remove('fade-out');
+            heroImg.classList.add('fade-in');
+            setTimeout(() => heroImg.classList.remove('fade-in'), 350);
+        }, 200);
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }, 3500);
+
+    showSlide(currentSlide);
+</script>
+
 
 </body>
 </html>

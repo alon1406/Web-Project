@@ -1,184 +1,404 @@
-/* איפוס בסיסי ועיצוב גופן */
+/* ===========================
+   בסיס + צבעים
+   =========================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+:root {
+    --green-main: #00a86b;      /* ירוק מכבי */
+    --green-dark: #007c3b;      /* ירוק כהה */
+    --green-light: #23d18b;     /* ירוק זוהר */
+    --green-soft: #e4fcee;      /* ירוק בהיר */
+    --white: #ffffff;
+    --white-soft: #f7f7f7;
+    --text-dark: #1a1a1a;       /* טקסט שחור */
+    --text-light: #f6fff9;      /* טקסט לבן ירקרק */
+    --text-muted: #c9e6d5;      /* טקסט ירוק בהיר */
+    --bg-dark: #06140a;         /* רקע ירוק כהה */
+    --bg-card: #0c2617;         /* כרטיסים ירוק כהה */
+}
+
+/* ===========================
+   BODY
+   =========================== */
+
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: #333; 
-    background-color: #f4f4f4; 
-    direction: rtl; /* כיוון מימין לשמאל */
+    color: var(--text-light);
+    background: linear-gradient(180deg, #06140a 0%, #0e2a1a 40%, #0a1f14 100%);
+    direction: rtl;
     text-align: right;
+    min-height: 100vh;
 }
 
-/* --- כותרת עליונה (Header) --- */
+/* קישורים */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.15s;
+}
+
+/* ===========================
+   HEADER (לבן יוקרתי)
+   =========================== */
+
 .main-header {
-    background-color: #007c3b; /* ירוק מכבי חיפה */
-    color: #fff;
-    padding: 15px 0;
+    background: var(--white);
+    color: var(--green-dark);
+    padding: 16px 0 10px;
+    border-bottom: 2px solid var(--green-dark);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    display: flex; /* שימוש ב-Flexbox */
-    justify-content: space-between; /* פיזור אלמנטים לצדדים */
-    align-items: center; /* יישור אנכי למרכז */
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-side {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.club-logo {
+    height: 72px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
 }
 
 .logo-title h1 {
-    font-size: 2em;
-    margin-bottom: 0;
+    font-size: 1.9rem;
+    color: var(--green-dark);
 }
 
 .logo-title p {
-    font-size: 0.9em;
-    opacity: 0.8;
+    margin-top: 4px;
+    color: #333;
+    font-size: 0.9rem;
 }
 
-/* כפתורי התחברות והרשמה */
+/* Buttons */
 .auth-links {
     display: flex;
-    gap: 10px; /* רווח בין הכפתורים */
+    gap: 10px;
 }
 
 .btn {
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid var(--green-dark);
 }
 
 .btn-login {
-    background-color: #fff;
-    color: #007c3b; /* טקסט ירוק על רקע לבן */
-    border: 1px solid #fff;
-}
-
-.btn-register {
-    background-color: transparent;
-    color: #fff; 
-    border: 1px solid #fff; /* גבול לבן */
+    background: var(--green-dark);
+    color: var(--white);
 }
 
 .btn-login:hover {
-    background-color: #e0e0e0;
+    background: var(--green-main);
+}
+
+.btn-register {
+    background: transparent;
+    color: var(--green-dark);
 }
 
 .btn-register:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background: var(--green-soft);
 }
 
-/* תפריט ניווט ראשי (מתחת לכותרת הראשית) */
+/* NAV */
+.main-nav {
+    background: var(--green-dark);
+    padding: 6px 0;
+}
+
 .main-nav ul {
-    list-style: none;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 24px;
     display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: 10px;
+    gap: 18px;
 }
 
-.main-nav ul li {
-    margin: 0 15px;
+.main-nav a {
+    color: var(--white);
+    font-weight: 600;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
 }
 
-.main-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
+.main-nav a:hover {
+    border-bottom-color: var(--white);
 }
 
-/* בתוך style.css: */
-.club-logo {
-    height: 80px; /* גודל רצוי */
-    width: auto;
-    background-color: #007c3b;
-    /* ניתן להוסיף כאן מיקום נוסף בהתאם לצורך */
+/* ===========================
+   LAYOUT
+   =========================== */
+
+.content-container {
+    max-width: 1200px;
+    margin: 28px auto 40px;
+    padding: 0 24px;
+    display: flex;
+    gap: 24px;
 }
 
-/* --- עיצוב עמוד התחברות (Login) --- */
+/* SIDE MENU — ימין, לבן / ירוק יוקרתי */
+.side-menu {
+    width: 240px;
+    background: var(--white);
+    color: var(--green-dark);
+    border-radius: 14px;
+    padding: 16px 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    position: sticky;
+    top: 100px;
+}
+
+.side-menu h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--green-dark);
+}
+
+.side-menu ul {
+    list-style: none;
+}
+
+.side-menu a {
+    display: block;
+    padding: 8px 8px;
+    border-radius: 10px;
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+.side-menu a:hover {
+    background: var(--green-soft);
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ===========================
+   HERO — ירוק כהה עם אפקטים
+   =========================== */
+
+.hero {
+    background: linear-gradient(135deg, #0b2e1b, #061a11);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.45);
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h2 {
+    font-size: 1.9rem;
+    color: var(--green-main);
+}
+
+.hero-text p {
+    margin-top: 8px;
+    color: var(--text-muted);
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--green-main);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    color: #002011;
+    border: none;
+}
+
+.btn-hero:hover {
+    background: var(--green-light);
+}
+
+/* HERO SLIDER */
+.hero-slider {
+    width: 300px;
+    text-align: center;
+}
+
+.hero-frame {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.hero-frame img {
+    width: 100%;
+    transition: 0.3s;
+}
+
+.hero-frame:hover img {
+    transform: scale(1.05);
+}
+
+.hero-caption {
+    margin-top: 6px;
+    color: var(--text-muted);
+}
+
+/* ===========================
+   ABOUT SECTION
+   =========================== */
+
+.about-section {
+    background: #0c2617;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.about-section h2 {
+    color: var(--green-light);
+    margin-bottom: 8px;
+}
+
+/* ===========================
+   SCARF GALLERY (לעמוד scarves)
+   =========================== */
+
+.scarf-gallery {
+    background: #0c2617;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.scarf-item {
+    background: var(--white);
+    padding: 12px;
+    border-radius: 12px;
+    color: var(--green-dark);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: 0.2s;
+}
+
+.scarf-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+}
+
+.scarf-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ===========================
+   FOOTER — לבן כמו שביקשת
+   =========================== */
+
+.main-footer {
+    background: var(--white);
+    color: var(--green-dark);
+    text-align: center;
+    padding: 16px 0;
+    margin-top: 40px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    font-weight: 600;
+}
+
+/* ===========================
+   LOGIN / REGISTER / FORGOT
+   =========================== */
 
 .login-container {
-    display: flex;
-    justify-content: center; /* מרכוז אופקי */
-    align-items: center; /* מרכוז אנכי */
-    height: 100vh; /* מותח את הגובה לגובה המסך המלא */
-    background-color: #f4f4f4; /* רקע בהיר (כמו שאר האתר) */
+    background: var(--white-soft);
 }
 
 .login-box {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px; /* רוחב מוגבל לקופסת הטופס */
-    text-align: right;
+    background: var(--white);
+    color: var(--green-dark);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
 }
 
 .login-box h2 {
-    color: #007c3b; /* ירוק מכבי */
-    margin-bottom: 25px;
-    text-align: center;
+    color: var(--green-dark);
+    margin-bottom: 16px;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.form-group input[type="text"],
-.form-group input[type="password"] {
+.form-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1em;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid var(--green-soft);
+}
+
+.form-group input:focus {
+    border-color: var(--green-main);
+    outline: none;
 }
 
 .btn-login-submit {
+    margin-top: 12px;
     width: 100%;
-    background-color: #007c3b;
-    color: #fff;
+    padding: 10px;
+    background: var(--green-dark);
+    color: var(--white);
+    border-radius: 999px;
     border: none;
-    padding: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    margin-top: 10px;
-    transition: background-color 0.3s;
+    font-weight: 700;
 }
 
 .btn-login-submit:hover {
-    background-color: #005f2f;
+    background: var(--green-main);
 }
 
-.links-footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.9em;
-}
+/* ===========================
+   RESPONSIVE
+   =========================== */
 
-.links-footer a {
-    color: #007c3b;
-    text-decoration: none;
-}
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
 
-.links-footer a:hover {
-    text-decoration: underline;
+    .side-menu {
+        width: 100%;
+        position: static;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
 }
-/* --- גלריית הפריטים והפוטר (כמו בקוד הקודם) --- */
-/* (ניתן להעתיק את שאר הקוד מ-style.css הקודם, כמו: .content-container, .scarf-gallery, .scarf-item, .main-footer) */
