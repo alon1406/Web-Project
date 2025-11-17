@@ -22,8 +22,9 @@
             </div>
 
             <div class="auth-links">
-                <a href="login.html" class="btn btn-login">התחברות</a>
-                <a href="register.html" class="btn btn-register">הרשמה</a>
+                <!-- שמתי id כדי שיפתחו מודאל -->
+                <a href="#" id="openLogin" class="btn btn-login">התחברות</a>
+                <a href="#" id="openRegister" class="btn btn-register">הרשמה</a>
             </div>
         </div>
 
@@ -73,11 +74,9 @@
                 <div class="hero-slider">
                     <div class="hero-frame">
                         <img id="hero-image" src="Images/scarves/manchester_1.jpg" alt="צעיף משחק נגד מנצ'סטר יונייטד">
-
                         <div class="hero-overlay"></div>
                     </div>
                     <div id="hero-caption" class="hero-caption">צעיף משחק נגד מנצ'סטר יונייטד</div>
-
                     <div class="hero-dots" id="hero-dots"></div>
                 </div>
             </section>
@@ -103,12 +102,76 @@
 
     </main>
 
+    <!-- 🔐 MODALS: התחברות + הרשמה -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-box">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>🔐 כניסה למערכת</h2>
+
+            <!-- כרגע בלי action – פרונט בלבד -->
+            <form>
+                <div class="form-group">
+                    <label for="login-username">שם משתמש / אימייל:</label>
+                    <input type="text" id="login-username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">סיסמה:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+
+                <button type="submit" class="btn btn-login-submit">התחבר</button>
+            </form>
+
+            <p class="links-footer">
+                <a href="#" id="openRegisterFromLogin">אין לך חשבון? הרשם עכשיו</a>
+                <br>
+                <a href="forgot.html">שכחת סיסמה?</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content login-box">
+            <span class="close" id="closeRegister">&times;</span>
+            <h2>📝 הרשמה לאוסף הירוק</h2>
+
+            <form>
+                <div class="form-group">
+                    <label for="reg-fullname">שם מלא:</label>
+                    <input type="text" id="reg-fullname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-email">אימייל:</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-password">סיסמה:</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-password2">אימות סיסמה:</label>
+                    <input type="password" id="reg-password2" required>
+                </div>
+
+                <button type="submit" class="btn btn-login-submit">הרשם</button>
+            </form>
+
+            <p class="links-footer">
+                <a href="#" id="openLoginFromRegister">כבר יש לך חשבון? התחבר</a>
+            </p>
+        </div>
+    </div>
+
     <footer class="main-footer">
         <p>&copy; 2025 האוסף הירוק · פרויקט אישי של אוהד מכבי חיפה</p>
     </footer>
 
-    <!-- סקריפט פשוט לתמונות מתחלפות -->
-   <script>
+    <!-- סקריפט: סליידר + מודלים -->
+    <script>
     // --- סליידר עם 3 הצעיפים שלך ---
     const slides = [
         {
@@ -172,8 +235,61 @@
     }, 3500);
 
     showSlide(currentSlide);
-</script>
 
+    // --- מודאלים: התחברות / הרשמה ---
+    const loginModal = document.getElementById("loginModal");
+    const registerModal = document.getElementById("registerModal");
+
+    const openLoginBtn = document.getElementById("openLogin");
+    const openRegisterBtn = document.getElementById("openRegister");
+
+    const closeLoginBtn = document.getElementById("closeLogin");
+    const closeRegisterBtn = document.getElementById("closeRegister");
+
+    const openRegisterFromLogin = document.getElementById("openRegisterFromLogin");
+    const openLoginFromRegister = document.getElementById("openLoginFromRegister");
+
+    // פתיחת התחברות
+    openLoginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginModal.style.display = "flex";
+    });
+
+    // פתיחת הרשמה
+    openRegisterBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        registerModal.style.display = "flex";
+    });
+
+    // סגירה
+    closeLoginBtn.addEventListener("click", () => {
+        loginModal.style.display = "none";
+    });
+
+    closeRegisterBtn.addEventListener("click", () => {
+        registerModal.style.display = "none";
+    });
+
+    // מעבר מהתחברות להרשמה
+    openRegisterFromLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginModal.style.display = "none";
+        registerModal.style.display = "flex";
+    });
+
+    // מעבר מהרשמה להתחברות
+    openLoginFromRegister.addEventListener("click", (e) => {
+        e.preventDefault();
+        registerModal.style.display = "none";
+        loginModal.style.display = "flex";
+    });
+
+    // סגירה בלחיצה על הרקע השחור
+    window.addEventListener("click", (e) => {
+        if (e.target === loginModal) loginModal.style.display = "none";
+        if (e.target === registerModal) registerModal.style.display = "none";
+    });
+    </script>
 
 </body>
 </html>
